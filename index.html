@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Invitation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-animation"></div>
+    <div id="blur-overlay" class="blur-overlay hidden"></div>
+    <div id="loading-spinner" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Saving your responses...</p>
+    </div>
+
+    <div id="welcome-screen" class="screen">
+        <h1>Welcome to My Special Survey</h1>
+        <p>Please enter your name to begin:</p>
+        <input type="text" id="user-name" placeholder="Your Name" required>
+        <button onclick="startSurvey()">Start</button>
+    </div>
+    
+    <div id="survey-screen" class="screen hidden">
+        <h2 id="greeting"></h2>
+        <p>Thanks for taking part in this short research survey!</p>
+        
+        <h3 id="excitement-question">How free are you this Saturday? (1 = No, 10 = Very Free!)</h3>
+        <input type="range" id="excitement-level" min="1" max="10" step="1" oninput="updateExcitementScore(this.value)">
+        <span id="excitement-score">5</span>
+
+        <h3 id="wine-question">Do you drink wine?</h3>
+        <button id="wine-yes" onclick="nextQuestion('wine', 'Yes')">Yes</button>
+        <button id="wine-no" onclick="nextQuestion('wine', 'No')">No</button>
+
+        <h3 id="grapes-question">Do you like grapes?</h3>
+        <button id="grapes-yes" onclick="nextQuestion('grapes', 'Yes')">Yes</button>
+        <button id="grapes-no" onclick="nextQuestion('grapes', 'No')">No</button>
+
+        <button class="next-btn" onclick="goToScreen('survey-screen-2')">Next</button>
+    </div>
+
+    <div id="survey-screen-2" class="screen hidden">
+        <h3 id="sweets-question">Do you prefer chocolate or candy?</h3>
+        <button id="sweets-chocolate" onclick="nextQuestion('sweets', 'Chocolate')">Chocolate</button>
+        <button id="sweets-candy" onclick="nextQuestion('sweets', 'Candy')">Candy</button>
+
+        <h3 id="food-question">What would you like to eat at a picnic?</h3>
+        <input type="text" id="fav-food" placeholder="e.g., Sandwiches, Fruit, Pizza, etc">
+
+        <h3 id="picnic-rating-question">Rate how much you’d enjoy an indoor picnic (1 = Not at all, 10 = Love it!)</h3>
+        <input type="range" id="picnic-rating" min="1" max="10" step="1" oninput="updatePicnicScore(this.value)">
+        <span id="picnic-score">5</span>
+
+        <h3 id="movie-question">What’s something you normally enjoy watching?</h3>
+        <input type="text" id="fav-movie" placeholder="Enter movie name or show">
+
+        <button class="finish-btn" onclick="submitResponses()">Finish</button>
+    </div>
+    
+    <div id="thank-you-screen" class="screen hidden">
+        <h2>Thank You!</h2>
+        <p>Your responses have been recorded. Click below for a surprise!</p>
+        <button onclick="goToScreen('invite-screen')">Reveal</button>
+    </div>
+    
+    <div id="invite-screen" class="screen hidden">
+        <h2>HEY THERE !!</h2>
+        <img src="Pink Watercolor Flowy Script Birthday Invitation.png" alt="Indoor Picnic Invitation">
+    </div>
+</body>
+</html>
