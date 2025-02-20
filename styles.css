@@ -4,7 +4,7 @@ body {
     background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ff9a9e, #fad0c4);
     background-size: 200% 200%;
     animation: gradientFlow 15s ease infinite;
-    color: #fff;
+     color: #0f0e0e;
     min-height: 100vh;
     display: flex;
     justify-content: center;
